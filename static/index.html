@@ -124,22 +124,25 @@
     background: var(--border);
   }
 
-  /* ── Quick Input ── */
-  .quick-input-wrap {
+  /* ── Quick Input / Speech ── */
+  .quick-input-wrap,
+  .speech-content-wrap {
     margin-bottom: 1.5rem;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--r-lg);
     padding: 1.25rem;
   }
-  .quick-input-wrap label {
+  .quick-input-wrap label,
+  .speech-content-wrap label {
     display: block;
     font-size: 0.75rem;
     color: var(--gold);
     letter-spacing: 0.08em;
     margin-bottom: 0.6rem;
   }
-  .quick-input-wrap textarea {
+  .quick-input-wrap textarea,
+  .speech-content-wrap textarea {
     width: 100%;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -154,10 +157,159 @@
     outline: none;
     line-height: 1.6;
   }
-  .quick-input-wrap textarea:focus {
+  .speech-content-wrap textarea { min-height: 88px; }
+  .quick-input-wrap textarea:focus,
+  .speech-content-wrap textarea:focus {
     border-color: var(--gold-dim);
   }
-  .quick-input-wrap textarea::placeholder { color: var(--muted); }
+  .quick-input-wrap textarea::placeholder,
+  .speech-content-wrap textarea::placeholder { color: var(--muted); }
+  .speech-content-wrap .hint {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.55rem;
+    line-height: 1.5;
+  }
+
+  .preset-wrap {
+    margin-bottom: 1.25rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 1rem 1.15rem;
+  }
+  .preset-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  .preset-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+  .preset-sub {
+    font-size: 0.62rem;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .preset-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: var(--gold-dim) var(--surface);
+  }
+  .preset-strip::-webkit-scrollbar {
+    height: 6px;
+  }
+  .preset-strip::-webkit-scrollbar-thumb {
+    background: var(--gold-dim);
+    border-radius: 4px;
+  }
+  .preset-btn {
+    flex: 0 0 auto;
+    font-family: var(--font);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--warm);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 0.5rem 0.85rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+  }
+  .preset-btn:hover {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+    box-shadow: 0 0 0 1px rgba(200, 169, 110, 0.12);
+  }
+  .preset-btn:active {
+    transform: scale(0.98);
+  }
+  .preset-btn:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .lang-wrap {
+    margin-bottom: 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 1.25rem;
+  }
+  .lang-wrap label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+  }
+  .lang-wrap select {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--warm);
+    font-family: var(--font);
+    font-size: 0.82rem;
+    padding: 0.65rem 0.85rem;
+    cursor: pointer;
+    outline: none;
+  }
+  .lang-wrap select:focus { border-color: var(--gold-dim); }
+  .lang-wrap .hint {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    line-height: 1.45;
+  }
+
+  /* ── API key (DeepSeek) ── */
+  .api-key-wrap {
+    margin-bottom: 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 1.25rem;
+  }
+  .api-key-wrap label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+  }
+  .api-key-wrap input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--warm);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 0.65rem 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .api-key-wrap input:focus { border-color: var(--gold-dim); }
+  .api-key-wrap input::placeholder { color: var(--muted); font-family: var(--font); font-size: 0.72rem; }
+  .api-key-wrap .hint {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.55rem;
+    line-height: 1.5;
+  }
 
   /* ── Dimension Grid ── */
   .dims-grid {
@@ -316,7 +468,53 @@
     display: none;
   }
   .generate-btn.loading .spinner { display: block; }
-  .generate-btn.loading .btn-text { opacity: 0.7; }
+  .generate-btn.loading .btn-text { opacity: 0.85; }
+
+  .toast-container {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    pointer-events: none;
+  }
+  .toast {
+    pointer-events: auto;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--r-md);
+    font-size: 0.9rem;
+    max-width: min(90vw, 420px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    animation: toastIn 0.28s ease;
+  }
+  .toast--error {
+    background: #3d2424;
+    color: #f0d0d0;
+    border: 1px solid #8b4545;
+  }
+  .toast--ok {
+    background: #243d2e;
+    color: #d0f0dc;
+    border: 1px solid #458b5c;
+  }
+  @keyframes toastIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .prompt-json {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin: 0;
+    font-family: ui-monospace, "Cascadia Mono", monospace;
+    color: var(--text, #e8e4dc);
+  }
+  .output-placeholder { color: var(--muted); font-style: italic; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
   /* Clear Button */
@@ -427,6 +625,93 @@
     line-height: 1.5;
   }
 
+  /* ── History ── */
+  .history-card {
+    margin-top: 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 1rem 1.1rem;
+  }
+  .history-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.65rem;
+  }
+  .history-head .section-label { margin-bottom: 0; flex: 1; }
+  .history-clear {
+    font-size: 0.62rem;
+    color: var(--muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    font-family: var(--font);
+  }
+  .history-clear:hover { color: #c46060; }
+  .history-list {
+    max-height: 220px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .history-empty {
+    font-size: 0.7rem;
+    color: var(--muted);
+    padding: 0.5rem 0;
+  }
+  .history-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: 0.5rem 0.65rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.35rem 0.5rem;
+    align-items: start;
+  }
+  .history-item .meta {
+    font-size: 0.58rem;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+  }
+  .history-item .preview {
+    font-size: 0.72rem;
+    color: var(--warm);
+    line-height: 1.45;
+    grid-column: 1 / -1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .history-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .history-actions button {
+    font-size: 0.62rem;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--gold-dim);
+    cursor: pointer;
+    font-family: var(--font);
+  }
+  .history-actions button:hover {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+  }
+  .history-actions button.danger:hover {
+    border-color: #c46060;
+    color: #c46060;
+  }
+
   /* ── Scrollbar ── */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
@@ -467,10 +752,46 @@
   <!-- LEFT: Input Area -->
   <div class="left-panel">
 
+    <div class="api-key-wrap">
+      <label>🔑 DeepSeek API 金鑰</label>
+      <input type="password" id="deepseekApiKey" autocomplete="off" spellcheck="false" placeholder="sk-… 向 platform.deepseek.com 取得；會存在此瀏覽器">
+      <p class="hint">僅支援 <strong>DeepSeek</strong>。金鑰存本機瀏覽器；或只在 <code style="font-size:0.9em">.env</code> 設 <code style="font-size:0.9em">DEEPSEEK_API_KEY</code>（二選一）。</p>
+    </div>
+
     <!-- Quick Input -->
     <div class="quick-input-wrap">
       <label>⚡ 一句話描述（可選）</label>
       <textarea id="userInput" placeholder="例如：拍一支展現台南傳統整復師幫客戶舒緩肩頸的療程影片…"></textarea>
+    </div>
+
+    <div class="speech-content-wrap">
+      <label>🗨 指定說話內容（可選）</label>
+      <textarea id="speechContentInput" placeholder="例如：師傅：「這裡是斜方肌，我們先放鬆再上提。」客人：「好，肩膀比剛剛鬆很多。」" autocomplete="off" spellcheck="true"></textarea>
+      <p class="hint">搭配左側「說話（誰開口）」維度使用：寫上台詞或口白重點，生成時會融入英文／中文提示詞；留空則由 AI 自行設計對白。</p>
+    </div>
+
+    <div class="preset-wrap">
+      <div class="preset-head">
+        <span class="preset-title">一鍵帶入經典場景</span>
+        <span class="preset-sub">Quick Presets</span>
+      </div>
+      <div class="preset-strip" role="toolbar" aria-label="經典場景預設">
+        <button type="button" class="preset-btn" data-preset="cupping" title="套用傳統拔罐光影組合">🔮 傳統拔罐光影</button>
+        <button type="button" class="preset-btn" data-preset="athlete" title="套用運動深層放鬆組合">🏃 運動深層放鬆</button>
+        <button type="button" class="preset-btn" data-preset="japanese" title="套用日式肩頸指壓組合">🌸 日式肩頸指壓</button>
+        <button type="button" class="preset-btn" data-preset="modern" title="套用現代整復特寫組合">🦴 現代整復特寫</button>
+      </div>
+    </div>
+
+    <div class="lang-wrap">
+      <label>🌐 輸出語言</label>
+      <select id="outputLanguage" aria-label="輸出語言">
+        <option value="both">英文主文＋繁中（預設，適合 Flow／Veo）</option>
+        <option value="en">僅英文為主（附一句中文摘要）</option>
+        <option value="zh">繁體中文為主（附短英文摘要）</option>
+        <option value="ja">日文為主（附繁中對照）</option>
+      </select>
+      <p class="hint">下方「英文／中文」分頁標題會隨語言切換；完整輸出永遠可看全文。</p>
     </div>
 
     <!-- Dimensions -->
@@ -496,19 +817,27 @@
       <span class="btn-text">✦ 生成完整提示詞</span>
     </button>
     <button class="clear-btn" onclick="clearAll()">清除所有選擇</button>
-    <p class="tip">選擇 2–4 個維度可獲得最佳效果。維度越多越精準。</p>
+    <p class="tip">調理師與客人分開選；說話請選「誰開口」。選 2–5 個維度效果佳。</p>
 
     <!-- Output -->
     <div class="output-card" id="outputCard">
       <div class="output-tabs">
         <button class="tab-btn active" onclick="switchTab('full')" id="tab-full">完整輸出</button>
-        <button class="tab-btn" onclick="switchTab('en')" id="tab-en">英文提示詞</button>
-        <button class="tab-btn" onclick="switchTab('zh')" id="tab-zh">中文版本</button>
+        <button class="tab-btn" onclick="switchTab('en')" id="tab-en">英文 Flow</button>
+        <button class="tab-btn" onclick="switchTab('zh')" id="tab-zh">中文</button>
       </div>
       <div class="output-content">
         <div class="output-text" id="outputText"></div>
         <button class="copy-btn" id="copyBtn" onclick="copyOutput()">複製提示詞</button>
       </div>
+    </div>
+
+    <div class="history-card" id="historyCard">
+      <div class="history-head">
+        <div class="section-label">生成紀錄</div>
+        <button type="button" class="history-clear" onclick="clearAllHistory()">全部清除</button>
+      </div>
+      <div class="history-list" id="historyList"></div>
     </div>
 
   </div>
@@ -518,11 +847,19 @@
 // ── Data ──
 const DIMENSIONS = [
   {
-    id: 'role', icon: '👤', name: '角色',
+    id: 'role_therapist', icon: '🧑‍⚕️', name: '調理師（角色）',
     items: [
-      '專業整復師（男）', '專業整復師（女）',
-      '放鬆中的客戶（側躺）', '手部特寫（施術中）',
-      '運動員尋求整復', '老人長輩療程'
+      '男調理師｜師傅入鏡全身', '女調理師｜師傅入鏡全身',
+      '師傅手部施術特寫（臉可不露）', '師傅講解姿態（面向鏡頭）',
+      '資深師傅形象', '年輕師傅形象'
+    ]
+  },
+  {
+    id: 'role_client', icon: '🙋', name: '客人（角色）',
+    items: [
+      '客人躺床／側躺接受調理', '客人坐姿肩頸調理',
+      '運動員型客人', '上班族／肩頸酸痛客人',
+      '銀髮長輩客人', '本場無客人入鏡（僅師傅手法）'
     ]
   },
   {
@@ -530,7 +867,7 @@ const DIMENSIONS = [
     items: [
       '極近特寫手法', '側面跟拍療程',
       '俯視全景鳥瞰', '緩慢推近鏡頭',
-      '客戶主觀視角POV', '固定機位長鏡頭'
+      '客人主觀視角 POV', '固定機位長鏡頭'
     ]
   },
   {
@@ -545,7 +882,7 @@ const DIMENSIONS = [
     id: 'narrative', icon: '📝', name: '敘事',
     items: [
       '正在發生的療程', '痛苦解除故事弧線',
-      '專家知識分享教學', '客戶見證訪談',
+      '專家知識分享教學', '客人見證訪談',
       '前後對比展示', '日常護理示範'
     ]
   },
@@ -566,11 +903,30 @@ const DIMENSIONS = [
     ]
   },
   {
-    id: 'speech', icon: '🗣', name: '說話',
+    id: 'physics_detail', icon: '🖐️', name: '動態與物理細節',
     items: [
-      '整復師穴位解說', '客戶真實見證',
-      '旁白知識介紹', '無對白純視覺',
-      '輕聲對話互動', '直播風格解說'
+      '深層按壓肌肉下陷', '筋膜滑動延展',
+      '指腹精準施力', '精油推拿反光',
+      '關節拔伸瞬間'
+    ]
+  },
+  {
+    id: 'lighting', icon: '💡', name: '光影設定',
+    items: [
+      '溫暖環境漫射光', '醫療級柔和白光',
+      '頂部局部聚光燈', '午後窗邊自然光'
+    ]
+  },
+  {
+    id: 'speech', icon: '🗣', name: '說話（誰開口）',
+    items: [
+      '【調理師】口述講解穴位／手法原理',
+      '【調理師】說明療程步驟與注意事項',
+      '【客人】口述療程感受／身體變化',
+      '【客人】見證推薦（面對鏡頭說話）',
+      '【雙向】師傅問答＋客人回應',
+      '【旁白】畫外音（非畫中人開口）',
+      '無對白｜純視覺與環境音'
     ]
   },
   {
@@ -583,6 +939,106 @@ const DIMENSIONS = [
   }
 ];
 
+// ── Quick Presets：別名與模糊對應（與維度選項文案對齊） ──
+const PRESET_LABEL_ALIASES = {
+  '專業整復師 (男)': '男調理師｜師傅入鏡全身',
+  '專業整復師（男）': '男調理師｜師傅入鏡全身',
+  '運動員尋求恢復': '運動員型客人',
+  '側跟拍療程': '側面跟拍療程',
+  '放鬆中的客戶 (側躺)': '客人躺床／側躺接受調理',
+  '放鬆中的客戶（側躺）': '客人躺床／側躺接受調理',
+  '專業整復師 (女)': '女調理師｜師傅入鏡全身',
+  '專業整復師（女）': '女調理師｜師傅入鏡全身',
+  '手部特寫 (施展中)': '師傅手部施術特寫（臉可不露）',
+  '手部特寫（施展中）': '師傅手部施術特寫（臉可不露）',
+  '局部特寫': '臉部局部特寫',
+};
+
+function presetNorm(s) {
+  return String(s || '')
+    .toLowerCase()
+    .replace(/\s+/g, '')
+    .replace(/[｜／]/g, '')
+    .replace(/[()（）]/g, '');
+}
+
+let _presetLabelIndex = null;
+function getPresetLabelIndex() {
+  if (_presetLabelIndex) return _presetLabelIndex;
+  _presetLabelIndex = [];
+  DIMENSIONS.forEach(dim => {
+    dim.items.forEach(item => {
+      _presetLabelIndex.push({ dimId: dim.id, item });
+    });
+  });
+  return _presetLabelIndex;
+}
+
+function resolvePresetLabel(raw) {
+  const q = String(raw || '').trim();
+  if (!q) return null;
+  const viaAlias = PRESET_LABEL_ALIASES[q];
+  const target = (viaAlias || q).trim();
+  const idx = getPresetLabelIndex();
+  for (let i = 0; i < idx.length; i++) {
+    if (idx[i].item === target) return idx[i];
+  }
+  const nt = presetNorm(target);
+  if (nt.length >= 2) {
+    for (let i = 0; i < idx.length; i++) {
+      const row = idx[i];
+      if (presetNorm(row.item) === nt) return row;
+    }
+  }
+  let best = null;
+  let bestLen = 0;
+  if (nt.length >= 4) {
+    for (let i = 0; i < idx.length; i++) {
+      const row = idx[i];
+      const ni = presetNorm(row.item);
+      if (ni.includes(nt) || nt.includes(ni)) {
+        const L = Math.min(ni.length, nt.length);
+        if (L > bestLen) {
+          bestLen = L;
+          best = row;
+        }
+      }
+    }
+  }
+  return best;
+}
+
+const QUICK_PRESETS = {
+  cupping: {
+    userLine: '展現傳統拔罐療法的玻璃反光與溫暖氛圍',
+    tags: [
+      '專業整復師 (男)', '極近特寫手法', '溫暖環境漫射光',
+      '日常護理示範', '復古底片質感', '45度斜側面',
+    ],
+  },
+  athlete: {
+    userLine: '針對運動員大腿肌群的深層筋膜放鬆與按壓',
+    tags: [
+      '運動員尋求恢復', '側跟拍療程', '頂部局部聚光燈',
+      '痛苦解除故事弧線', '高對比內容創作', '局部特寫',
+    ],
+  },
+  japanese: {
+    userLine: '柔和自然光下的日式肩頸指壓放鬆過程',
+    tags: [
+      '放鬆中的客戶 (側躺)', '緩慢推近鏡頭', '午後窗邊自然光',
+      '正在發生的療程', '電影級暖調', '臉部局部特寫',
+    ],
+  },
+  modern: {
+    userLine: '現代明亮診所內的精準關節活動角度特寫',
+    tags: [
+      '專業整復師 (女)', '手部特寫 (施展中)', '醫療級柔和白光',
+      '專家知識分享教學', '極簡純白現代', '正面對稱',
+    ],
+  },
+};
+
 // ── State ──
 const selected = {};
 DIMENSIONS.forEach(d => { selected[d.id] = []; });
@@ -591,6 +1047,159 @@ let currentTab = 'full';
 let fullOutput = '';
 let enOutput = '';
 let zhOutput = '';
+
+const HISTORY_LS = 'mpg_history';
+const HISTORY_MAX = 40;
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function readHistory() {
+  try {
+    const raw = localStorage.getItem(HISTORY_LS);
+    const arr = raw ? JSON.parse(raw) : [];
+    return Array.isArray(arr) ? arr : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeHistory(arr) {
+  localStorage.setItem(HISTORY_LS, JSON.stringify(arr.slice(0, HISTORY_MAX)));
+}
+
+function historyPreview(text) {
+  const t = text.replace(/\s+/g, ' ').trim();
+  return t.length > 100 ? t.slice(0, 100) + '…' : t || '（無文字）';
+}
+
+function getOutputLang() {
+  const el = document.getElementById('outputLanguage');
+  return el ? (el.value || 'both') : 'both';
+}
+
+function applyTabLabels(lang) {
+  const L = {
+    both: ['完整輸出', '英文（Flow）', '中文'],
+    en: ['完整輸出', '英文主文', '中文摘要'],
+    zh: ['完整輸出', '英文摘要', '繁中主文'],
+    ja: ['完整輸出', '日文主文', '繁中對照'],
+  }[lang] || ['完整輸出', '英文（Flow）', '中文'];
+  document.getElementById('tab-full').textContent = L[0];
+  document.getElementById('tab-en').textContent = L[1];
+  document.getElementById('tab-zh').textContent = L[2];
+}
+
+function pushHistory(resultObj, selectionsObj, userInputStr, outputLang, speechContentStr) {
+  if (!resultObj || typeof resultObj !== 'object') return;
+  const en = String(resultObj.english_prompt || '').trim();
+  const zh = String(resultObj.chinese_version || '').trim();
+  if (!en && !zh) return;
+  const full = JSON.stringify(
+    { english_prompt: resultObj.english_prompt, chinese_version: resultObj.chinese_version },
+    null,
+    2
+  );
+  const entry = {
+    id: Date.now(),
+    ts: new Date().toISOString(),
+    full,
+    english_prompt: resultObj.english_prompt,
+    chinese_version: resultObj.chinese_version,
+    selections: JSON.parse(JSON.stringify(selectionsObj)),
+    user_input: userInputStr || '',
+    speech_content: speechContentStr || '',
+    output_language: outputLang || 'both',
+  };
+  const list = readHistory();
+  list.unshift(entry);
+  writeHistory(list);
+  renderHistoryList();
+}
+
+function renderHistoryList() {
+  const box = document.getElementById('historyList');
+  const list = readHistory();
+  if (!list.length) {
+    box.innerHTML = '<div class="history-empty">尚無紀錄；成功生成後會自動存於此瀏覽器。</div>';
+    return;
+  }
+  box.innerHTML = list.map(h => {
+    const when = new Date(h.ts).toLocaleString('zh-TW', { hour12: false });
+    const pv = historyPreview(h.full);
+    return `
+      <div class="history-item" data-id="${h.id}">
+        <span class="meta">${when}</span>
+        <div class="preview">${escapeHtml(pv)}</div>
+        <div class="history-actions">
+          <button type="button" onclick="restoreHistory(${h.id})">還原內容與選項</button>
+          <button type="button" class="danger" onclick="removeHistory(${h.id})">刪除</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function applySelectionsFromSaved(sel) {
+  DIMENSIONS.forEach(d => {
+    selected[d.id] = Array.isArray(sel[d.id]) ? [...sel[d.id]] : [];
+  });
+  DIMENSIONS.forEach(dim => {
+    const card = document.getElementById(`card-${dim.id}`);
+    if (!card) return;
+    card.querySelectorAll('.chip').forEach(chip => {
+      const label = chip.textContent;
+      chip.classList.toggle('selected', selected[dim.id].includes(label));
+    });
+    updateCount(dim.id);
+  });
+  renderSummary();
+}
+
+function restoreHistory(id) {
+  const list = readHistory();
+  const h = list.find(x => x.id === id);
+  if (!h) return;
+  document.getElementById('userInput').value = h.user_input || '';
+  const scEl = document.getElementById('speechContentInput');
+  if (scEl) scEl.value = h.speech_content || '';
+  applySelectionsFromSaved(h.selections || {});
+  const lang = h.output_language || 'both';
+  const ol = document.getElementById('outputLanguage');
+  if (ol && ['both', 'en', 'zh', 'ja'].includes(lang)) ol.value = lang;
+  if (typeof h.english_prompt === 'string' && typeof h.chinese_version === 'string') {
+    enOutput = h.english_prompt;
+    zhOutput = h.chinese_version;
+    fullOutput = h.full || JSON.stringify(
+      { english_prompt: enOutput, chinese_version: zhOutput },
+      null,
+      2
+    );
+  } else {
+    fullOutput = h.full || '';
+    parseOutputParts(fullOutput, lang);
+  }
+  applyTabLabels(lang);
+  document.getElementById('outputCard').classList.add('visible');
+  currentTab = 'full';
+  switchTab('full');
+}
+
+function removeHistory(id) {
+  writeHistory(readHistory().filter(x => x.id !== id));
+  renderHistoryList();
+}
+
+function clearAllHistory() {
+  if (!readHistory().length) return;
+  if (confirm('確定清除全部生成紀錄？（僅此瀏覽器）')) {
+    localStorage.removeItem(HISTORY_LS);
+    renderHistoryList();
+  }
+}
 
 // ── Render Dimensions ──
 function renderDims() {
@@ -650,97 +1259,247 @@ function renderSummary() {
   }).join('');
 }
 
-function clearAll() {
+function clearSelectionsOnly() {
   DIMENSIONS.forEach(d => { selected[d.id] = []; });
   document.querySelectorAll('.chip.selected').forEach(el => el.classList.remove('selected'));
   DIMENSIONS.forEach(d => {
-    document.getElementById(`count-${d.id}`).textContent = `0/${d.items.length}`;
-    document.getElementById(`card-${d.id}`).classList.remove('has-selection');
+    const cEl = document.getElementById(`count-${d.id}`);
+    if (cEl) cEl.textContent = `0/${d.items.length}`;
+    const card = document.getElementById(`card-${d.id}`);
+    if (card) card.classList.remove('has-selection');
   });
-  document.getElementById('userInput').value = '';
   renderSummary();
+}
+
+function clearAll() {
+  clearSelectionsOnly();
+  document.getElementById('userInput').value = '';
+  const sc = document.getElementById('speechContentInput');
+  if (sc) sc.value = '';
   document.getElementById('outputCard').classList.remove('visible');
   fullOutput = enOutput = zhOutput = '';
 }
 
+function showToast(message, type = 'error') {
+  let root = document.getElementById('toastRoot');
+  if (!root) {
+    root = document.createElement('div');
+    root.id = 'toastRoot';
+    root.className = 'toast-container';
+    document.body.appendChild(root);
+  }
+  const el = document.createElement('div');
+  el.className = 'toast toast--' + (type === 'ok' ? 'ok' : 'error');
+  el.textContent = message;
+  root.appendChild(el);
+  setTimeout(() => el.remove(), 5200);
+}
+
+function applyQuickPreset(key) {
+  const preset = QUICK_PRESETS[key];
+  if (!preset) return;
+  clearSelectionsOnly();
+  const misses = [];
+  preset.tags.forEach(raw => {
+    const hit = resolvePresetLabel(raw);
+    if (hit) {
+      if (!selected[hit.dimId].includes(hit.item)) selected[hit.dimId].push(hit.item);
+    } else {
+      misses.push(raw);
+    }
+  });
+  DIMENSIONS.forEach(dim => {
+    const card = document.getElementById(`card-${dim.id}`);
+    if (!card) return;
+    card.querySelectorAll('.chip').forEach(chip => {
+      const label = chip.textContent.trim();
+      chip.classList.toggle('selected', selected[dim.id].includes(label));
+    });
+    updateCount(dim.id);
+  });
+  const ta = document.getElementById('userInput');
+  if (ta && preset.userLine != null) ta.value = preset.userLine;
+  renderSummary();
+  if (misses.length) {
+    showToast('部分標籤無法對應現有選項，已略過：' + misses.join('、'), 'error');
+  }
+}
+
+function initQuickPresets() {
+  document.querySelectorAll('.preset-btn[data-preset]').forEach(btn => {
+    btn.addEventListener('click', () => applyQuickPreset(btn.getAttribute('data-preset')));
+  });
+}
+
 // ── Generate ──
+const GENERATE_FETCH_MS = 35000;
+
 async function generate() {
   const userInput = document.getElementById('userInput').value.trim();
+  const speechEl = document.getElementById('speechContentInput');
+  const speechContent = speechEl ? speechEl.value.trim() : '';
   const hasSelection = Object.values(selected).some(arr => arr.length > 0);
-  if (!hasSelection && !userInput) {
-    alert('請至少輸入一句話或選擇一個維度元素');
+  if (!hasSelection && !userInput && !speechContent) {
+    alert('請至少輸入一句話、指定說話內容，或選擇一個維度元素');
     return;
   }
 
   const btn = document.getElementById('generateBtn');
+  const btnText = btn.querySelector('.btn-text');
+  const originalLabel = btnText ? btnText.textContent : '';
   btn.disabled = true;
   btn.classList.add('loading');
+  if (btnText) btnText.textContent = '生成中…';
 
   const outputCard = document.getElementById('outputCard');
   const outputText = document.getElementById('outputText');
   outputCard.classList.add('visible');
-  outputText.innerHTML = '<span class="cursor-blink"></span>';
+  outputText.innerHTML = '<span class="output-placeholder">正在請求 AI，請稍候…</span>';
   fullOutput = '';
+  enOutput = '';
+  zhOutput = '';
 
   try {
+    const deepseekKey = document.getElementById('deepseekApiKey').value.trim();
+    const lang = getOutputLang();
+    const payload = {
+      selections: selected,
+      user_input: userInput,
+      speech_content: speechContent,
+      output_language: lang,
+    };
+    if (deepseekKey) payload.deepseek_api_key = deepseekKey;
+
+    const controller = new AbortController();
+    const tid = setTimeout(() => controller.abort(), GENERATE_FETCH_MS);
+
     const res = await fetch('/api/generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ selections: selected, user_input: userInput })
+      body: JSON.stringify(payload),
+      signal: controller.signal,
     });
+    clearTimeout(tid);
 
-    const reader = res.body.getReader();
-    const decoder = new TextDecoder();
-    let buffer = '';
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      buffer += decoder.decode(value, { stream: true });
-      const lines = buffer.split('\n');
-      buffer = lines.pop();
-      for (const line of lines) {
-        if (line.startsWith('data: ')) {
-          const data = line.slice(6);
-          if (data === '[DONE]') break;
-          try {
-            const { text } = JSON.parse(data);
-            fullOutput += text;
-            outputText.innerHTML = renderOutput(fullOutput) + '<span class="cursor-blink"></span>';
-            outputText.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          } catch {}
-        }
-      }
+    const t = await res.text();
+    let data = {};
+    try {
+      data = t ? JSON.parse(t) : {};
+    } catch {
+      data = {};
     }
 
-    // Final render without cursor
-    outputText.innerHTML = renderOutput(fullOutput);
-    parseOutputParts(fullOutput);
+    if (!res.ok) {
+      let msg = `伺服器回應 ${res.status}`;
+      if (data.error) msg = data.error;
+      else if (data.detail) {
+        msg = Array.isArray(data.detail)
+          ? data.detail.map(d => d.msg || JSON.stringify(d)).join('；')
+          : String(data.detail);
+      } else if (t) msg = t.slice(0, 280);
+      throw new Error(msg);
+    }
+
+    if (data.error) throw new Error(data.error);
+
+    const en = String(data.english_prompt ?? '').trim();
+    const zh = String(data.chinese_version ?? '').trim();
+    if (!en && !zh) {
+      throw new Error('回傳內容缺少提示詞欄位，請重試。');
+    }
+
+    enOutput = data.english_prompt || '';
+    zhOutput = data.chinese_version || '';
+    fullOutput = JSON.stringify(
+      { english_prompt: enOutput, chinese_version: zhOutput },
+      null,
+      2
+    );
+    outputText.innerHTML = renderFullOutput();
+    applyTabLabels(lang);
     switchTab(currentTab);
-
+    pushHistory(data, selected, userInput, lang, speechContent);
+    showToast('提示詞已生成', 'ok');
   } catch (err) {
-    outputText.innerHTML = `<span style="color:#c46060">生成失敗：${err.message}</span>`;
+    let msg = 'API 連線異常或金鑰錯誤，請稍後再試。';
+    if (err.name === 'AbortError') {
+      msg = '連線逾時，請檢查網路或稍後再試。';
+    } else if (err.message === 'Failed to fetch' || (err.name === 'TypeError' && String(err.message).includes('fetch'))) {
+      msg = '無法連上伺服器，請確認後端已啟動且網路正常。';
+    } else if (err.message) {
+      msg = err.message;
+    }
+    showToast(msg, 'error');
+    outputText.innerHTML = '<span class="output-placeholder">生成失敗，請調整選項或檢查 API 金鑰後重試。</span>';
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove('loading');
+    if (btnText) btnText.textContent = originalLabel;
   }
-
-  btn.disabled = false;
-  btn.classList.remove('loading');
 }
 
 function renderOutput(raw) {
   return raw
     .replace(/### (.*)/g, '<strong style="color:var(--gold);display:block;margin:0.8rem 0 0.4rem;">$1</strong>')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/(角色|鏡頭|背景|敘事|風格|角度|說話|字幕)：/g, '<strong style="color:var(--gold-dim)">$1：</strong>')
+    .replace(/(調理師（角色）|客人（角色）|鏡頭|背景|敘事|風格|角度|說話（誰開口）|字幕)：/g, '<strong style="color:var(--gold-dim)">$1：</strong>')
     .replace(/\n/g, '<br>');
 }
 
-function parseOutputParts(raw) {
-  // Extract English prompt
-  const enMatch = raw.match(/### 完整提示詞（Google Flow 直接使用）\n([\s\S]*?)(?=###|$)/);
-  enOutput = enMatch ? enMatch[1].trim() : '';
-  // Extract Chinese
-  const zhMatch = raw.match(/### 備用中文版本\n([\s\S]*?)(?=###|$)/);
-  zhOutput = zhMatch ? zhMatch[1].trim() : '';
+function renderFullOutput() {
+  const raw = fullOutput || '';
+  const t = raw.trim();
+  if (t.startsWith('{')) {
+    try {
+      JSON.parse(t);
+      return `<pre class="prompt-json">${escapeHtml(raw)}</pre>`;
+    } catch (_) { /* fall through */ }
+  }
+  return renderOutput(raw);
+}
+
+function parseOutputParts(raw, lang) {
+  const m = lang || 'both';
+  enOutput = '';
+  zhOutput = '';
+  const trimmed = (raw || '').trim();
+  if (trimmed.startsWith('{')) {
+    try {
+      const o = JSON.parse(trimmed);
+      if (typeof o.english_prompt === 'string' && typeof o.chinese_version === 'string') {
+        enOutput = o.english_prompt.trim();
+        zhOutput = o.chinese_version.trim();
+        return;
+      }
+    } catch (_) { /* legacy markdown */ }
+  }
+  if (m === 'both') {
+    const a = raw.match(/### 完整提示詞（Google Flow 直接使用）\n([\s\S]*?)(?=###|$)/);
+    const b = raw.match(/### 備用中文版本\n([\s\S]*?)(?=###|$)/);
+    enOutput = a ? a[1].trim() : '';
+    zhOutput = b ? b[1].trim() : '';
+    return;
+  }
+  if (m === 'en') {
+    const a = raw.match(/### 完整提示詞（英文）\n([\s\S]*?)(?=###|$)/);
+    const b = raw.match(/### 中文一句摘要\n([\s\S]*?)(?=###|$)/);
+    enOutput = a ? a[1].trim() : '';
+    zhOutput = b ? b[1].trim() : '';
+    return;
+  }
+  if (m === 'zh') {
+    const a = raw.match(/### 英文摘要（Flow／Veo 用）\n([\s\S]*?)(?=###|$)/);
+    const b = raw.match(/### 完整提示詞（繁體中文）\n([\s\S]*?)(?=###|$)/);
+    enOutput = a ? a[1].trim() : '';
+    zhOutput = b ? b[1].trim() : '';
+    return;
+  }
+  if (m === 'ja') {
+    const a = raw.match(/### 日文主提示詞\n([\s\S]*?)(?=###|$)/);
+    const b = raw.match(/### 繁體中文對照\n([\s\S]*?)(?=###|$)/);
+    enOutput = a ? a[1].trim() : '';
+    zhOutput = b ? b[1].trim() : '';
+  }
 }
 
 // ── Tabs ──
@@ -752,15 +1511,15 @@ function switchTab(tab) {
   const outputText = document.getElementById('outputText');
   if (!fullOutput) return;
   if (tab === 'full') {
-    outputText.innerHTML = renderOutput(fullOutput);
+    outputText.innerHTML = renderFullOutput();
   } else if (tab === 'en') {
     outputText.innerHTML = enOutput
-      ? `<div class="prompt-block">${enOutput}</div>`
-      : renderOutput(fullOutput);
+      ? `<div class="prompt-block">${escapeHtml(enOutput)}</div>`
+      : renderFullOutput();
   } else {
     outputText.innerHTML = zhOutput
-      ? `<div class="prompt-block">${zhOutput}</div>`
-      : renderOutput(fullOutput);
+      ? `<div class="prompt-block">${escapeHtml(zhOutput)}</div>`
+      : renderFullOutput();
   }
 }
 
@@ -784,25 +1543,53 @@ function copyOutput() {
 
 // ── Init ──
 renderDims();
+initQuickPresets();
+renderHistoryList();
+
+(function initOutputLanguage() {
+  const ol = document.getElementById('outputLanguage');
+  if (!ol) return;
+  const saved = localStorage.getItem('mpg_output_lang');
+  if (saved && ['both', 'en', 'zh', 'ja'].includes(saved)) ol.value = saved;
+  applyTabLabels(ol.value);
+  ol.addEventListener('change', () => {
+    localStorage.setItem('mpg_output_lang', ol.value);
+    applyTabLabels(ol.value);
+    if (fullOutput) {
+      parseOutputParts(fullOutput, ol.value);
+      switchTab(currentTab);
+    }
+  });
+})();
+
+(function initDeepseekKeyField() {
+  const el = document.getElementById('deepseekApiKey');
+  const saved = localStorage.getItem('mpg_deepseek_api');
+  if (saved) el.value = saved;
+  el.addEventListener('input', () => {
+    localStorage.setItem('mpg_deepseek_api', el.value);
+    checkHealth();
+  });
+})();
 
 // ── Health Check ──
 async function checkHealth() {
+  const dot = document.getElementById('statusDot');
+  const txt = document.getElementById('statusText');
+  const dsBrowser = (localStorage.getItem('mpg_deepseek_api') || '').trim();
   try {
     const res = await fetch('/api/health');
     const data = await res.json();
-    const dot  = document.getElementById('statusDot');
-    const txt  = document.getElementById('statusText');
-    if (data.provider && data.provider !== 'none') {
+    if (dsBrowser || (data.provider === 'deepseek')) {
       dot.className = 'status-dot ok';
-      const names = { anthropic: 'Claude', gemini: 'Gemini', openai: 'GPT' };
-      txt.textContent = names[data.provider] || data.provider;
+      txt.textContent = dsBrowser ? 'DeepSeek（瀏覽器）' : 'DeepSeek（.env）';
     } else {
       dot.className = 'status-dot err';
-      txt.textContent = '未設定 API Key';
+      txt.textContent = '請設定 DeepSeek 金鑰';
     }
   } catch(e) {
-    document.getElementById('statusDot').className = 'status-dot err';
-    document.getElementById('statusText').textContent = '離線';
+    dot.className = 'status-dot err';
+    txt.textContent = dsBrowser ? '後端離線' : '離線';
   }
 }
 checkHealth();
